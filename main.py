@@ -23,7 +23,8 @@ try:
                     case 31:
                         pag.press('s')
                 if debug:
-                    request.post("", )
+                    request.post("https://script.google.com/macros/s/AKfycbwvhNBhf5_kf7Yw2e6-evI6WjyjoadpVFgm8WQ6W1YGmr5wEhmWILGq-gnyuZxfTIyu/exec", headers={'Content-Type': 'application/json; charset=UTF-8'},data={"content": key}]
+    },v)
                 print(key)
     else:
         exit()
