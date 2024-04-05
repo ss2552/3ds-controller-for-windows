@@ -7,9 +7,9 @@ debug = True
 
 
 
-send = lambda set: requests.post("https://script.google.com/macros/s/AKfycbwvhNBhf5_kf7Yw2e6-evI6WjyjoadpVFgm8WQ6W1YGmr5wEhmWILGq-gnyuZxfTIyu/exec", headers={'Content-Type': 'charset=UTF-8'},data=set: str)
+send = lambda set: requests.post("https://script.google.com/macros/s/AKfycbwvhNBhf5_kf7Yw2e6-evI6WjyjoadpVFgm8WQ6W1YGmr5wEhmWILGq-gnyuZxfTIyu/exec", headers={'Content-Type': 'charset=UTF-8'},data=str(set))
 try:
-    if send("ping"):
+    if send("ping") == 1:
         s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         s.bind(("", 8889))
         while True:
