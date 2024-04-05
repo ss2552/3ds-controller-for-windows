@@ -16,24 +16,25 @@ try:
         while True:
             data, addr = s.recvfrom(4096)
             rawdata = bytearray(data)[0]
-            match rawdata:
-                case 0:
-                    pass
-                case 1:
-                    key = struct.unpack(c, rawdata) # "<BBxxIhhHHhh"
-                    if  key[3]:
-                        case 28:
-                            pag.press('d')
-                        case 29:
-                            pag.press('a')
-                    elif key[4]:
-                        case 30:
-                            pag.press('w')
-                        case 31:
-                            pag.press('s')
-            if debug:
-                send(key)
-                print(key)
+            if rawdata == 1:
+                key = struct.unpack(c, rawdata)
+                if debug:
+                    send(key)
+                    print(key)
+                match key[3]:
+                    case 28:
+                        pag.press('d')
+                        pass
+                    case 29:
+                        pag.press('a')
+                        pass
+                match key[4]:
+                    case 30:
+                        pag.press('w')
+                        pass
+                    case 31:
+                        pag.press('s')
+                        pass
     exit()
 except Exception as e:
     print(e)
